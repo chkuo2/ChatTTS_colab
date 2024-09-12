@@ -58,7 +58,7 @@ def generate_audio_for_seed(chat, seed, texts, batch_size, speed, refine_text_pr
         if seed in [None, -1, 0, "", "random"]:
             seed = np.random.randint(0, 9999)
         deterministic(seed)
-        rnd_spk_emb = chat.sample_random_speaker()
+        rnd_spk_emb = chat.sample_random_speaker(seed)
     elif speaker_type == "role":
         # 从 JSON 文件中读取数据
         with open('./slct_voice_240605.json', 'r', encoding='utf-8') as json_file:
